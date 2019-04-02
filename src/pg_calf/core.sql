@@ -15,10 +15,10 @@ SELECT column_name AS "name",
   FROM information_schema.columns WHERE table_name = :table ORDER BY ordinal_position;
 
 -- :name foreign-keys
-SELECT tc.constraint_name AS "constraint-name",
-       kcu.column_name AS "column-name",
-       ccu.table_name AS "foreign-table-name",
-       ccu.column_name AS "foreign-column-name"
+SELECT tc.constraint_name AS "name",
+       kcu.column_name AS "column",
+       ccu.table_name AS "foreign-table",
+       ccu.column_name AS "foreign-column"
   FROM information_schema.table_constraints AS tc
       JOIN information_schema.key_column_usage AS kcu
         ON tc.constraint_name = kcu.constraint_name
